@@ -5,6 +5,7 @@ import org.launchcode.WordsYouKnow.Models.Data.WordBankDao;
 import org.launchcode.WordsYouKnow.Models.Data.UserDao;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
@@ -18,4 +19,10 @@ public class WordsYouKnowController {
 
     @Autowired
     private WordBankDao WordBankDao;
+
+    @RequestMapping(value = "")
+
+    public String index(Model model) {
+        return "login";
+    }
 }
