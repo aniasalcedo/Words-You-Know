@@ -7,5 +7,5 @@ import javax.transaction.Transactional;
 
 @Repository
 @Transactional
-public interface MeaningDao extends CrudRepository {
+public interface WordBankDao extends CrudRepository {
 }
