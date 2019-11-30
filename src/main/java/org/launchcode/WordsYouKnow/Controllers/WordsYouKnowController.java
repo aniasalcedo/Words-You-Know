@@ -23,6 +23,6 @@ public class WordsYouKnowController {
     @RequestMapping(value = "")
 
     public String index(Model model) {
-        return "login";
+        return "fragments";
     }
 }

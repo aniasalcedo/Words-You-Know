@@ -1,11 +1,26 @@
+
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.thymeleaf.org">
-<head>
+<html lang="en" xmlns:th="http://www.thymeleaf.org/" xmlns:font-family="http://www.w3.org/1999/xhtml">
+<head th:fragment="head">
     <meta charset="UTF-8"/>
-    <title></title>
-    <link rel="stylesheet" th:href="@{/css/styles.css}"/>
-    <script type="text/javascript" th:src="@{/js/script.js}"></script>
-</head>
+    <title th:text="${title}">My Cheeses</title>
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" />
+    <script type="text/javascript" src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+<center></head>
+<div class="header" style="background-color:grey; font-family:Georgia, serif;">
+    <h1><b>WORDS YOU KNOW</b></h1>
+</div></center>
 <body>
+
+<nav th:fragment="navigation" style="font-family:Georgia, serif;">
+    <a href="/My Profile">My Profile</a> |
+    <a href="/Add">Add</a> |
+    <a href="/Search">Search</a>|
+    <a href="/Log In">Log In</a>|
+    <a href="/Register">Register</a>
+</nav>
+
 </body>
 </html>
