@@ -1,26 +1,51 @@
-
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.thymeleaf.org/" xmlns:font-family="http://www.w3.org/1999/xhtml">
+<html lang="en" xmlns:th="http://www.thymeleaf.org/">
+
 <head th:fragment="head">
-    <meta charset="UTF-8"/>
-    <title th:text="${title}">My Cheeses</title>
+    <title th:text="${title}">WORDS YOU KNOW</title>
+    <meta charset="utf-8" />
+    <link href="https://fonts.googleapis.com/css?family=Lobster" rel="stylesheet" type="text/css" />
+    <!--    <link href="https://fonts.googleapis.com/css?family=Cabin|Lobster|Pacifico|Questrial|Quicksand|Raleway|Vibes&display=swap" rel="stylesheet" type="text/css"/>-->
+    <link href="/css/style.css" type="text/css" rel="stylesheet" />
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous" />
+    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet" />
 
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" />
-    <script type="text/javascript" src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</head>
 
-<center></head>
-<div class="header" style="background-color:grey; font-family:Georgia, serif;">
-    <h1><b>WORDS YOU KNOW</b></h1>
-</div></center>
 <body>
 
-<nav th:fragment="navigation" style="font-family:Georgia, serif;">
-    <a href="/My Profile">My Profile</a> |
-    <a href="/Add">Add</a> |
-    <a href="/Search">Search</a>|
-    <a href="/Log In">Log In</a>|
-    <a href="/Register">Register</a>
+<nav th:fragment="navigation" class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <a class="navbar-brand" id="logo" href="/">Words You Know</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNavDropdown">
+        <ul class="navbar-nav">
+            <li class="nav-item active">
+                <a class="nav-link" href="index">My Profile</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="login">Add</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="login">Search</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="login">Log In</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="register">Register</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" th:action="@{/logout}" method="post">Log Out</a>
+            </li>
+        </ul>
+
+    </div>
 </nav>
 
+
 </body>
+
 </html>
