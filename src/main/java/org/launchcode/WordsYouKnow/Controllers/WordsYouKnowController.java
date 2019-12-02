@@ -22,7 +22,12 @@ public class WordsYouKnowController {
 
     @RequestMapping(value = "")
 
-    public String index(Model model) {
+    public String main(Model model) {
+        return "login";
+    }
+    @RequestMapping(value = "login")
+
+    public String login(Model model) {
         return "login";
     }
 }
