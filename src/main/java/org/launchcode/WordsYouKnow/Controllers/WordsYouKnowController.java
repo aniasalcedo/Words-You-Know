@@ -30,4 +30,9 @@ public class WordsYouKnowController {
     public String login(Model model) {
         return "login";
     }
+    @RequestMapping(value = "register")
+
+    public String register(Model model) {
+        return "register";
+    }
 }
