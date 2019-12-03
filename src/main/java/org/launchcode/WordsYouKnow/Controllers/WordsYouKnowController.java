@@ -38,4 +38,14 @@ public class WordsYouKnowController {
     public String add(Model model) {
         return "add";
     }
+
+    @RequestMapping(value = "search")
+    public String search(Model model) {
+        return "search";
+    }
+
+    @RequestMapping(value = "logout")
+    public String logout(Model model) {
+        return "login";
+    }
 }

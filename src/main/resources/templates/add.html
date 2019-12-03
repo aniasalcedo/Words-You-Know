@@ -11,20 +11,21 @@
     <h4 th:text="${title}">Default Title</h4>
 
 
-    <center><form method="post">
-        <div class="form-group col-md-6">
-            <label form="text">Username</label>
-            <input type="text" class="form-control" id="username" placeholder="Username"/>
-            <br>
-            <label for="password">Password</label>
-            <input type="password" class="form-control" id="password" placeholder="Password"/>
-            <br>
-            <button type="button" class="btn btn-outline-danger">Log In</button>
-            </br>
+    <center><form th:object="${newWord}" method="post">
+
+        <div class="form-group">
+            <label th:for="word">Word</label>
+            <input th:field="*{word}" />
+            <div th:errors="*{word}"></div>
         </div>
-        <div>
-            <label form="text">Don't have an account? You can register <a href="register">here.</a></label>
+
+        <div class="form-group">
+            <label th:for="definition">Definition</label>
+            <input th:field="*{definition}" />
+            <div th:errors="{definition}"></div>
         </div>
+        <button type="button" class="btn btn-outline-danger">Add a new word</button>
+    </form>
     </center>
     </form>
 
