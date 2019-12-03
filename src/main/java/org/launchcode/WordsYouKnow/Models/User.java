@@ -5,6 +5,7 @@ import org.hibernate.validator.constraints.Email;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.Transient;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 
@@ -26,6 +27,8 @@ public class User {
     @Size(min=5, message = "Password must be at least 5 characters long")
     private String password;
 
+//   It wont create a column in the database but will still verify the password
+    @Transient
     @NotNull(message = "Passwords do not match")
     private String verifyPassword;
 
