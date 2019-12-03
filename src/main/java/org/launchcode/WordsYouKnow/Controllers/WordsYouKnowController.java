@@ -21,18 +21,21 @@ public class WordsYouKnowController {
     private WordBankDao WordBankDao;
 
     @RequestMapping(value = "")
-
     public String main(Model model) {
         return "login";
     }
-    @RequestMapping(value = "login")
 
+    @RequestMapping(value = "login")
     public String login(Model model) {
         return "login";
     }
     @RequestMapping(value = "register")
-
     public String register(Model model) {
         return "register";
+    }
+
+    @RequestMapping(value = "add")
+    public String add(Model model) {
+        return "add";
     }
 }
