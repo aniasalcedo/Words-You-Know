@@ -48,4 +48,9 @@ public class WordsYouKnowController {
     public String logout(Model model) {
         return "login";
     }
+
+    @RequestMapping(value = "myprofile")
+    public String myprofile(Model model) {
+        return "myprofile";
+    }
 }
