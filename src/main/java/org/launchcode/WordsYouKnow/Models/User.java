@@ -20,10 +20,6 @@ public class User {
     private String username;
 
     @NotNull
-    @Email(message = "Invalid email address")
-    private String email;
-
-    @NotNull
     @Size(min=5, message = "Password must be at least 5 characters long")
     private String password;
 
