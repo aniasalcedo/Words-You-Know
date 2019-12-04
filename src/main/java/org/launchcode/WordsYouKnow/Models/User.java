@@ -66,6 +66,7 @@ public class User {
         this.password = password;
     }
 
+    // I don't know yet if and why I need this
     private void checkPassword(){
         if (password != null && verifyPassword != null && !password.equals(verifyPassword)) {
             verifyPassword = null;
