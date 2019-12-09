@@ -25,10 +25,10 @@ public class WordsYouKnowController {
         return "login";
     }
 
-    @RequestMapping(value = "login")
-    public String login(Model model) {
-        return "login";
-    }
+//    @RequestMapping(value = "login")
+//    public String login(Model model) {
+//        return "login";
+//    }
 
     @RequestMapping(value = "register")
     public String register(Model model) {

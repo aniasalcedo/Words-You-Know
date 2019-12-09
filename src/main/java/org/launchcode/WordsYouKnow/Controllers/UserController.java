@@ -18,7 +18,13 @@ import javax.validation.Valid;
 public class UserController {
 
     @Autowired
-    private UserDao UserDao;
+    private UserDao userDao;
+
+    @RequestMapping(value="login")
+    public String profile(Model model){
+        model.addAttribute("users", userDao.findAll());
+        return "login";
+    }
 
     @RequestMapping(method = RequestMethod.GET, value = "/register")
     public String register(Model model) {
@@ -28,10 +34,10 @@ public class UserController {
     }
 
     @RequestMapping(value = "/register", method = RequestMethod.POST)
-    public String add(Model model, @ModelAttribute @Valid User user,
+    public String add(Model model, @ModelAttribute @Valid User newUser,
                       Errors errors) { //add this if needed , String verifypassword
 
-        model.addAttribute(user);
+        model.addAttribute(newUser);
 //        boolean passwordsMatch = true;
 //        if (user.getPassword() == null || verifypassword == null
 //                || !user.getPassword().equals(verifypassword)) {
@@ -44,9 +50,9 @@ public class UserController {
             return "register";
         }
 
-    UserDao.save(user);
+        userDao.save(newUser);
 //            User myvaliduser = new User(user.getUsername(), user.getPassword());
 //            UserDao.save(myvaliduser);
-            return "myprofile";
+        return "redirect:/login";
         }
     }
