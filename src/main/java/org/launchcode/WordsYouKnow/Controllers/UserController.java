@@ -27,17 +27,11 @@ public class UserController {
         return "register";
     }
 
-    //====== ADDED THIS TO TRY AND ACTUALLY REGISTER USERS, MAY NOT WORK=====
     @RequestMapping(value = "/register", method = RequestMethod.POST)
     public String add(Model model, @ModelAttribute @Valid User user,
-                      Errors errors) { //add this if needed , String passwordconfirmation
-        if (errors.hasErrors()) {
-            return "register";
-        }
+                      Errors errors) { //add this if needed , String verifypassword
 
-        return "add";
-
-//        model.addAttribute(newUser);
+        model.addAttribute(user);
 //        boolean passwordsMatch = true;
 //        if (user.getPassword() == null || verifypassword == null
 //                || !user.getPassword().equals(verifypassword)) {
@@ -45,9 +39,14 @@ public class UserController {
 //            user.setPassword("");
 //            model.addAttribute("verifypassword", "Passwords must match");
 //        }
-//
-          UserDao.save(User);
-          User myvaliduser = new User(user.getUsername(), user.getPassword());
-          UserDao.save(myvaliduser);
+
+        if (errors.hasErrors()) {
+            return "register";
+        }
+
+    UserDao.save(user);
+//            User myvaliduser = new User(user.getUsername(), user.getPassword());
+//            UserDao.save(myvaliduser);
+            return "myprofile";
+        }
     }
-}
