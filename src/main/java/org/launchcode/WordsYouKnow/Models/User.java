@@ -13,7 +13,7 @@ public class User {
     private int id;
 
     @NotNull
-    @Size(min= 5, max= 15)
+    @Size(min= 3, max=20, message = "Login must be between 3-20 characters")
     private String username;
 
     @NotNull
