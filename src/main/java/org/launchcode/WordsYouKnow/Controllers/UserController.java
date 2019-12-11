@@ -70,31 +70,7 @@ public class UserController {
 
     @RequestMapping(method = RequestMethod.GET, value = "/login")
     public String log(Model model) {
-        model.addAttribute(new User());
+        model.addAttribute(User());
         model.addAttribute("title", "Login page");
         return "login";
-    }
-
-//    @RequestMapping(value = "/login", method = RequestMethod.POST)
-//    public String add(Model model, @ModelAttribute @Valid User newUser,
-//                      Errors errors) { //add this if needed , String verifypassword
-
-//        model.addAttribute(newUser);
-////        boolean passwordsMatch = true;
-////        if (user.getPassword() == null || verifypassword == null
-////                || !user.getPassword().equals(verifypassword)) {
-////            passwordsMatch = false;
-////            user.setPassword("");
-////            model.addAttribute("verifypassword", "Passwords must match");
-////        }
-//
-//        if (errors.hasErrors()) {
-//            return "register";
-//        }
-//
-//        userDao.save(newUser);
-////            User myvaliduser = new User(user.getUsername(), user.getPassword());
-////            UserDao.save(myvaliduser);
-//        return "redirect:/myprofile";
-//    }
     }

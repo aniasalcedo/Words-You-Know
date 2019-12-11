@@ -11,9 +11,9 @@
     <h4 th:text="${title}">Default Title</h4>
 
 
-    <center><form th:object="${user}" method="post">>
+    <center><form th:object="${user}" method="post">
         <div class="form-group col-md-6">
-            <label th:for="*{text}">Username</label>
+            <label th:for="*{username}">Username</label>
             <input type="text" class="form-control" id="username" placeholder="Username" th:field="*{username}"/>
             <span th:errors="*{username}" class="error"></span>
         <br>
