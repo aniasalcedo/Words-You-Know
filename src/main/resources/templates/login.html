@@ -12,15 +12,15 @@
     <h4 th:text="${title}">Default Title</h4>
 
 
-    <center><form th:object="${user}" method="post">
+    <center><form th:object="${User}" method="post">
         <div class="form-group col-md-6">
-            <label th:for="*{username}">Username</label>
-            <input type="text" class="form-control" id="username" placeholder="Username" th:field="*{username}"/>
-            <span th:errors="*{username}" class="error"></span>
+            <label for="username">Username</label>
+            <input type="text" name="username" class="form-control" id="username" placeholder="Username" autofocus="autofocus"/> <!--th:field="*{username}"-->
+            <span errors="username" class="error"></span>
             <br>
-            <label th:for="*{password}">Password</label>
-            <input type="password" class="form-control" id="password" placeholder="Password" th:field="*{password}"/>
-            <span th:errors="*{password}" class="error"></span>
+            <label for="password">Password</label>
+            <input type="password" name="password" class="form-control" id="password" placeholder="Password"/> <!--th:field="*{password}"-->
+            <span errors="password" class="error"></span>
             <br>
             <button type="submit" class="btn btn-outline-danger">Log In</button>
             </br>

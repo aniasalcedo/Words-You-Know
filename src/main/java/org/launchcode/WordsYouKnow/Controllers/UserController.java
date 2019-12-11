@@ -21,14 +21,9 @@ public class UserController {
     @Autowired
     private UserDao userDao;
 
-    //
+    /////////////////////////////////////////////////////
 // registration
-    //
-    @RequestMapping(value = "login")
-    public String login(Model model) {
-        model.addAttribute("users", userDao.findAll());
-        return "login";
-    }
+/////////////////////////////////////////////////////
 
     @RequestMapping(method = RequestMethod.GET, value = "/register")
     public String register(Model model) {
@@ -61,20 +56,39 @@ public class UserController {
     }
 
 
-//
+/////////////////////////////////////////////////////
 //        login
-//
+////////////////////////////////////////////////////
 
-    @RequestMapping(value = "myprofile")
-    public String profile(Model model) {
-        model.addAttribute("users", userDao.findAll());
-        return "myprofile";
-    }
+//    @RequestMapping(value = "login")
+//    public String login(Model model) {
+//        model.addAttribute("users", userDao.findAll());
+//        return "login";
+//    }
+//
+//    @RequestMapping(value = "myprofile")
+//    public String profile(Model model) {
+//        model.addAttribute("users", userDao.findAll());
+//        return "myprofile";
+//    }
 
     @RequestMapping(method = RequestMethod.GET, value = "/login")
-    public String log(Model model) {
-        model.addAttribute(new User());
-        model.addAttribute("title", "Login page");
+    public String getloginform() {
+//        model.addAttribute(new User());
+//        model.addAttribute("title", "Login page");
         return "login";
+    }
+
+    @RequestMapping(value = "/login", method = RequestMethod.POST)
+    public String login(@ModelAttribute(name = "User") User user, Model model) {
+        String username = user.getUsername();
+        String password = user.getPassword();
+
+        if (username.equals(username) && password.equals(password)) {
+            return "myprofile";
+        }
+        model.addAttribute("invalidCredentials", true);
+        return "login";
+
     }
 }
