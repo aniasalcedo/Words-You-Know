@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org/">
 
@@ -16,13 +17,13 @@
             <label th:for="*{username}">Username</label>
             <input type="text" class="form-control" id="username" placeholder="Username" th:field="*{username}"/>
             <span th:errors="*{username}" class="error"></span>
-        <br>
+            <br>
             <label th:for="*{password}">Password</label>
             <input type="password" class="form-control" id="password" placeholder="Password" th:field="*{password}"/>
             <span th:errors="*{password}" class="error"></span>
-        <br>
-        <button type="submit" class="btn btn-outline-danger">Log In</button>
-        </br>
+            <br>
+            <button type="submit" class="btn btn-outline-danger">Log In</button>
+            </br>
         </div>
         <div>
             <label form="text">Don't have an account? You can register <a href="register">here.</a></label>
@@ -32,4 +33,4 @@
 
 </body>
 
-</html>
+<!--</html>-->

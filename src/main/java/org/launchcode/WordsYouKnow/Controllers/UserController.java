@@ -1,3 +1,4 @@
+
 package org.launchcode.WordsYouKnow.Controllers;
 
 import org.launchcode.WordsYouKnow.Models.Data.UserDao;
@@ -19,11 +20,12 @@ public class UserController {
 
     @Autowired
     private UserDao userDao;
+
     //
 // registration
     //
-    @RequestMapping(value="login")
-    public String login(Model model){
+    @RequestMapping(value = "login")
+    public String login(Model model) {
         model.addAttribute("users", userDao.findAll());
         return "login";
     }
@@ -56,21 +58,23 @@ public class UserController {
 //            User myvaliduser = new User(user.getUsername(), user.getPassword());
 //            UserDao.save(myvaliduser);
         return "redirect:/login";
-        }
+    }
+
 
 //
-// login
+//        login
 //
 
-    @RequestMapping(value="myprofile")
-    public String profile(Model model){
+    @RequestMapping(value = "myprofile")
+    public String profile(Model model) {
         model.addAttribute("users", userDao.findAll());
         return "myprofile";
     }
 
     @RequestMapping(method = RequestMethod.GET, value = "/login")
     public String log(Model model) {
-        model.addAttribute(User());
+        model.addAttribute(new User());
         model.addAttribute("title", "Login page");
         return "login";
     }
+}
