@@ -84,7 +84,8 @@ public class UserController {
         String username = user.getUsername();
         String password = user.getPassword();
 
-        if (username.equals(username) && password.equals(password)) {
+        User myFoundUser = userDao.findByUsername(username);
+        if ( myFoundUser != null && password.equals(myFoundUser.getPassword())){
             return "myprofile";
         }
         model.addAttribute("invalidCredentials", true);
