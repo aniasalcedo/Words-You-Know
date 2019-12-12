@@ -157,5 +157,8 @@
         width: 40px;
         background-color: #fff;
     }
+    .error {
+    color: #FF0000
+    }
 
 
