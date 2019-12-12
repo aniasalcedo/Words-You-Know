@@ -92,4 +92,18 @@ public class UserController {
         return "login";
 
     }
+
+    @RequestMapping(value = "/logout", method = RequestMethod.POST)
+    public String loginfromlogout(@ModelAttribute(name = "User") User user, Model model) {
+        String username = user.getUsername();
+        String password = user.getPassword();
+
+        User myFoundUser = userDao.findByUsername(username);
+        if ( myFoundUser != null && password.equals(myFoundUser.getPassword())){
+            return "myprofile";
+        }
+        model.addAttribute("invalidCredentials", true);
+        return "login";
+
+    }
 }
