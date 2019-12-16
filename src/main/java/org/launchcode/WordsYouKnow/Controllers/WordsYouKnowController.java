@@ -1,6 +1,6 @@
 package org.launchcode.WordsYouKnow.Controllers;
 
-import org.launchcode.WordsYouKnow.Models.Data.WordDao;
+import org.launchcode.WordsYouKnow.Models.Data.NewWordDao;
 import org.launchcode.WordsYouKnow.Models.Data.WordBankDao;
 import org.launchcode.WordsYouKnow.Models.Data.UserDao;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -15,7 +15,7 @@ public class WordsYouKnowController {
     private UserDao UserDao;
 
     @Autowired
-    private WordDao WordDao;
+    private NewWordDao newWordDao;
 
     @Autowired
     private WordBankDao WordBankDao;
@@ -35,10 +35,10 @@ public class WordsYouKnowController {
         return "register";
     }
 
-    @RequestMapping(value = "add")
-    public String add(Model model) {
-        return "add";
-    }
+//    @RequestMapping(value = "add")
+//    public String add(Model model) {
+//        return "add";
+//    }
 
     @RequestMapping(value = "search")
     public String search(Model model) {

@@ -10,7 +10,7 @@ import javax.persistence.ManyToOne;
 import javax.validation.constraints.Size;
 
 @Entity
-public class Word {
+public class NewWord {
 
     @Id
     @GeneratedValue
@@ -25,17 +25,13 @@ public class Word {
     @Size(message = "Please enter its definition.")
     private String definition;
 
-//    @ManyToOne
-//    private City city;
-
-
-    public Word(String word, String definition) {
+    public NewWord(String word, String definition) {
         this.word = word;
         this.definition = definition;
     }
 
 
-    public Word() {
+    public NewWord() {
     }
 
     public String getWord() {
