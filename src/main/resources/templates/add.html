@@ -11,24 +11,26 @@
     <h4 th:text="${title}">Default Title</h4>
 
 
-<!--    <center><form th:object="${newWord}" method="post">-->
+    <center><form th:object="${Word}"  method="post">
+        <div class = "form-group">
+            <label th:for="word">Word</label>
+            <input type="text" class="form-control" id="word" placeholder="Enter a new word" autofocus="autofocus" name="word" required><br><br>
 
-<!--        <div class="form-group">-->
-<!--            <label th:for="word">Word</label>-->
-<!--            <input th:field="*{word}" />-->
-<!--            <div th:errors="*{word}"></div>-->
-<!--        </div>-->
 
-<!--        <div class="form-group">-->
-<!--            <label th:for="definition">Definition</label>-->
-<!--            <input th:field="*{definition}" />-->
-<!--            <div th:errors="{definition}"></div>-->
-<!--        </div>-->
-<!--        <button type="button" class="btn btn-outline-danger">Add a new word</button>-->
-<!--    </form>-->
-<!--    </center>-->
-<!--    </form>-->
+            <label th:for="definition">Definition</label>
+            <input type="text" placeholder="Enter its definition" id="definition" class="form-control" name="definition" required><br><br>
 
+            <!--            <label th:for="cityId">City</label>-->
+<!--            <select name="cityId">-->
+<!--                <option th:each="city: ${cities}"-->
+<!--                        th:text="${city.name}"-->
+<!--                        th:value="${city.id}"></option>-->
+<!--            </select>-->
+<!--            <br><br>-->
+            <input type="submit" class="btn btn-outline-danger" value="Add new word" />
+        </div> </center>
+
+    </form>
 <!--</body>-->
 
 <!--</html>-->

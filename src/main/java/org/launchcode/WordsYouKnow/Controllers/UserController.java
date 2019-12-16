@@ -80,7 +80,7 @@ public class UserController {
     }
 
     @RequestMapping(value = "/login", method = RequestMethod.POST)
-    public String login(@ModelAttribute(name = "User") User user, Model model) {
+    public String login(@ModelAttribute(name = "User") User user, Model model, Errors errors) {
         String username = user.getUsername();
         String password = user.getPassword();
 
@@ -92,6 +92,9 @@ public class UserController {
         return "login";
 
     }
+    /////////////////////////////////////////////////////
+//        login again when you logout
+////////////////////////////////////////////////////
 
     @RequestMapping(value = "/logout", method = RequestMethod.POST)
     public String loginfromlogout(@ModelAttribute(name = "User") User user, Model model) {

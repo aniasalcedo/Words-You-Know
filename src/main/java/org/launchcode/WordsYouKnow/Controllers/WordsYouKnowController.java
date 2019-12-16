@@ -50,8 +50,8 @@ public class WordsYouKnowController {
         return "login";
     }
 
-//    @RequestMapping(value = "myprofile")
-//    public String myprofile(Model model) {
-//        return "myprofile";
-//    }
+    @RequestMapping(value = "myprofile")
+    public String myprofile(Model model) {
+        return "myprofile";
+    }
 }

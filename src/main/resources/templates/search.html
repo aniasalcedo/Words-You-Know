@@ -14,7 +14,7 @@
     <div id="cover">
         <form method="get" action="">
             <div class="tb">
-                <div class="td"><input class="searchtext" type="text" placeholder="Search" required></div>
+                <div class="td"><input class="searchtext" id="myInput" onkeyup="myFunction()" type="text" placeholder="Search" required></div>
                 <div class="td" id="s-cover">
                     <button class="searchbutton" type="submit">
                         <div id="s-circle"></div>
@@ -24,3 +24,17 @@
             </div>
         </form>
     </div>
+
+    <table id="myTable" class="table">
+
+        <tr>
+            <th>Word</th>
+            <th>Definition</th>
+        </tr>
+
+        <tr th:each="word : ${words}">
+            <td th:text="${word.word}"></td>
+            <td th:text="${word.definition}"></td>
+        </tr>
+
+    </table>
