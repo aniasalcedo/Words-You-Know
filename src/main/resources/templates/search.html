@@ -11,31 +11,35 @@
 <div class="container"><br/>
     <h4 th:text="${title}">Default Title</h4>
 
-    <div id="cover">
-        <form method="get" action="">
-            <div class="tb">
-                <div class="td"><input class="searchtext" id="myInput" onkeyup="myFunction()" type="text" placeholder="Search" required></div>
-                <div class="td" id="s-cover">
-                    <button class="searchbutton" type="submit">
-                        <div id="s-circle"></div>
-                        <span></span>
-                    </button>
-                </div>
-            </div>
-        </form>
-    </div>
-
+<!--    <div id="cover">-->
+<!--        <form method="get" action="">-->
+<!--            <div class="tb">-->
+<!--                <div class="td"><input class="searchtext" id="myInput" onkeyup="myFunction()" type="text" placeholder="Search" required></div>-->
+<!--                <div class="td" id="s-cover">-->
+<!--                    <button class="searchbutton" type="submit">-->
+<!--                        <div id="s-circle"></div>-->
+<!--                        <span></span>-->
+<!--                    </button>-->
+<!--                </div>-->
+<!--            </div>-->
+<!--        </form>-->
+<!--    </div>-->
+    <input type="text" id="myInput" onkeyup="myFunction()" placeholder="Search for locations..">
+    <table id="myTable">
+        <tr class="header">
+            <th style="width:60%;">Name</th>
+            <th style="width:40%;">Definition</th>
+        </tr>
     <div>
     <table id="myTable" class="table">
 
         <tr>
-            <th>Word</th>
-            <th>Definition</th>
+
         </tr>
 
-        <tr th:each="word : ${words}">
-            <td th:text="${word.word}"></td>
-            <td th:text="${word.definition}"></td>
+        <tr th:each="newWord : ${newWords}">
+            <td th:text="${newWord.word}"></td>
+            <td th:text="${newWord.definition}"></td>
         </tr>
 
     </table>
