@@ -6,7 +6,6 @@ import org.aspectj.weaver.loadtime.definition.Definition;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
-import javax.persistence.ManyToOne;
 import javax.validation.constraints.Size;
 
 @Entity
@@ -26,10 +25,11 @@ public class NewWord {
     private String definition;
 
     public NewWord(String word, String definition) {
+        super();
         this.word = word;
         this.definition = definition;
+        this.id = id;
     }
-
 
     public NewWord() {
     }

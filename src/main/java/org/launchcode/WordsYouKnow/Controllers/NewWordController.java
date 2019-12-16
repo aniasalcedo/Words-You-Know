@@ -14,12 +14,13 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import javax.validation.Valid;
 
 @Controller
-@RequestMapping("add")
+@RequestMapping(value="")
 public class NewWordController {
+
    @Autowired
    private NewWordDao newWordDao;
 
-    @RequestMapping(value="")
+    @RequestMapping(value="add")
     public String index(Model model) {
         model.addAttribute("title", "Add a new Word");
         model.addAttribute("word", newWordDao.findAll());
@@ -35,13 +36,15 @@ public class NewWordController {
 
     @RequestMapping(value="add", method = RequestMethod.POST)
     public String processadd(Model model, @ModelAttribute @Valid NewWord newWord, Errors errors) {
+
+
         if (errors.hasErrors()) {
             return "add";
         }
-        else {
-            newWordDao.save(newWord);
-            return "redirect:/add";
-        }
+
+        newWordDao.save(newWord);
+        return "redirect:/add";
+
     }
 
 }
