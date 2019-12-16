@@ -10,6 +10,6 @@ import javax.transaction.Transactional;
 @Repository
 @Transactional
 public interface NewWordDao extends CrudRepository<NewWord, Integer> {
-    NewWord findByWord(String word);
+//    NewWord findById(Integer newWordId);
 
 }

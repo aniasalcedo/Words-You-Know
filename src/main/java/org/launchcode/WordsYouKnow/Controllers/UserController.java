@@ -28,7 +28,7 @@ public class UserController {
     @RequestMapping(method = RequestMethod.GET, value = "/register")
     public String register(Model model) {
         model.addAttribute(new User());
-        model.addAttribute("title", "Register");
+//        model.addAttribute("title", "Register");
         return "register";
     }
 
@@ -86,7 +86,7 @@ public class UserController {
 
         User myFoundUser = userDao.findByUsername(username);
         if ( myFoundUser != null && password.equals(myFoundUser.getPassword())){
-            return "myprofile";
+            return "search";
         }
         model.addAttribute("invalidCredentials", true);
         return "login";
@@ -103,7 +103,7 @@ public class UserController {
 
         User myFoundUser = userDao.findByUsername(username);
         if ( myFoundUser != null && password.equals(myFoundUser.getPassword())){
-            return "myprofile";
+            return "search";
         }
         model.addAttribute("invalidCredentials", true);
         return "login";

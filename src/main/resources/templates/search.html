@@ -24,7 +24,9 @@
 <!--            </div>-->
 <!--        </form>-->
 <!--    </div>-->
-    <input type="text" id="myInput" onkeyup="myFunction()" placeholder="Search for locations..">
+    <input type="text" id="myInput" onkeyup="myFunction()" placeholder="Search for the Words You Know">
+    <p th:unless="${newWords} and ${newWords.size()}">No words added yet.</p>
+
     <table id="myTable">
         <tr class="header">
             <th style="width:60%;">Name</th>

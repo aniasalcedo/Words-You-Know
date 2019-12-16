@@ -40,10 +40,10 @@ public class WordsYouKnowController {
 //        return "add";
 //    }
 
-    @RequestMapping(value = "search")
-    public String search(Model model) {
-        return "search";
-    }
+//    @RequestMapping(value = "search")
+//    public String search(Model model) {
+//        return "search";
+//    }
 
     @RequestMapping(value = "logout")
     public String logout(Model model) {

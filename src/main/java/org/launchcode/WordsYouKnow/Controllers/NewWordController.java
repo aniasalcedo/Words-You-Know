@@ -30,7 +30,7 @@ public class NewWordController {
     @RequestMapping(value="add", method = RequestMethod.GET)
     public String displayadd(Model model) {
         model.addAttribute(new NewWord());
-        model.addAttribute("title", "Add a new word");
+//        model.addAttribute("title", "Add a new word");
         return "add";
     }
 
@@ -46,7 +46,16 @@ public class NewWordController {
         return "redirect:/add";
 
     }
+    //////////////////////////////////////////////////////////////////////////////////////////
+////////////////////////////////// SEARCH THROUGH THE NEW WORD DATABASE/////////////////////////////////////
+    //////////////////////////////////////////////////////////////////////////////////////////
+    @RequestMapping(value = "search", method = RequestMethod.GET)
+    public String displaywords(Model model) {
 
+        model.addAttribute("newWords", newWordDao.findAll());
+
+        return "search";
+    }
 }
 
 
