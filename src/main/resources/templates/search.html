@@ -10,32 +10,3 @@
 
 <div class="container"><br/>
     <h4 th:text="${title}">Default Title</h4>
-
-<!--    <input type="text" id="myInput" onkeyup="myFunction()" placeholder="Search through the Words You Know">-->
-    <input type="text" id="myInput" onkeyup="testShit()" placeholder="Search through the Words You Know">
-    <p th:unless="${newWords} and ${newWords.size()}">No words added yet.</p>
-
-    <table id="myTable">
-        <tr class="header">
-            <th style="width:60%;">Name</th>
-            <th style="width:40%;">Definition</th>
-        </tr>
-    </table>
-    <div>
-
-    <table id="myTable" class="table">
-
-        <tr th:each="newWord : ${newWords}">
-            <td th:text="${newWord.word}"></td>
-            <td th:text="${newWord.definition}"></td>
-        </tr>
-
-    </table>
-    </div>
-</div>
-<center><div><a class="btn btn-outline-danger" th:href="@{'/add'}">Add a New Word</a></div></center>
-<center><label form="text">If you would like to <b>log out</b>, click <a href="logout">here.</a></label></center>
-</body>
-
-<script type="text/javascript" src="|${/static/js}/script.js|"></script>
-</html>

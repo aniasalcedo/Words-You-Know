@@ -85,28 +85,35 @@ public class UserController {
         String password = user.getPassword();
 
         User myFoundUser = userDao.findByUsername(username);
-        if ( myFoundUser != null && password.equals(myFoundUser.getPassword())){
-            return "search";
+        if (myFoundUser != null && password.equals(myFoundUser.getPassword())) {
+            return "redirect:/search";
+        }
+        if (errors.hasErrors()) {
+            return "login";
         }
         model.addAttribute("invalidCredentials", true);
         return "login";
+        }
 
-    }
     /////////////////////////////////////////////////////
 //        login again when you logout
 ////////////////////////////////////////////////////
 
     @RequestMapping(value = "/logout", method = RequestMethod.POST)
-    public String loginfromlogout(@ModelAttribute(name = "User") User user, Model model) {
+    public String loginfromlogout(@ModelAttribute(name = "User") User user, Model model, Errors errors) {
         String username = user.getUsername();
         String password = user.getPassword();
 
         User myFoundUser = userDao.findByUsername(username);
-        if ( myFoundUser != null && password.equals(myFoundUser.getPassword())){
-            return "search";
+        if (myFoundUser != null && password.equals(myFoundUser.getPassword())) {
+            return "redirect:/search";
+        }
+        if (errors.hasErrors()) {
+            return "login";
         }
         model.addAttribute("invalidCredentials", true);
-        return "login";
+        return "logout";
 
-    }
+        }
+
 }
