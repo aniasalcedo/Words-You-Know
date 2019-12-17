@@ -89,6 +89,7 @@ public class UserController {
             return "redirect:/search";
         }
         if (errors.hasErrors()) {
+            model.addAttribute("loginpassword", "Password Incorrect");
             return "login";
         }
         model.addAttribute("invalidCredentials", true);
