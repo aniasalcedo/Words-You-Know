@@ -10,3 +10,51 @@
 
 <div class="container"><br/>
     <h4 th:text="${title}">Default Title</h4>
+    <input type="text" id="myInput" onkeyup="myFunction()" placeholder="Search for a word you know to find its translation">
+
+    <p th:unless="${newWords} and ${newWords.size()}">No words added yet.</p>
+
+    <table id="myTable" class="table">
+        <tr class="header">
+            <th style="width:60%;">Word</th>
+            <th style="width:40%;">Translation</th>
+        </tr>
+
+            <tr th:each="newWord : ${newWords}">
+                <td th:text="${newWord.definition}"></td>
+                <td th:text="${newWord.word}"></td>
+            </tr>
+
+        </table>
+</div>
+<center><div><a class="btn btn-outline-danger" th:href="@{'/add'}">Add a New Word</a></div></center>
+<center><label form="text">If you would like to <b>log out</b>, click <b><a href="logout">here.</a></b></label></center>
+</body>
+<script>
+function myFunction() {
+// Declare variables
+var input, filter, table, tr, td, i, txtValue;
+input = document.getElementById("myInput");
+filter = input.value.toUpperCase();
+table = document.getElementById("myTable");
+tr = table.getElementsByTagName("tr");
+
+// Loop through all table rows, and hide those who don't match the search query
+for (i = 0; i < tr.length; i++) {
+td = tr[i].getElementsByTagName("td")[1];
+td = tr[i].getElementsByTagName("td")[0];
+if (td) {
+txtValue = td.textContent || td.innerText;
+if (txtValue.toUpperCase().indexOf(filter) > -1) {
+tr[i].style.display = "";
+} else {
+tr[i].style.display = "none";
+}
+}
+}
+}
+</script>
+<!--<script type="text/javascript" src="|${/static/js}/script.js|"></script>-->
+</html>
+
+
