@@ -11,20 +11,8 @@
 <div class="container"><br/>
     <h4 th:text="${title}">Default Title</h4>
 
-<!--    <div id="cover">-->
-<!--        <form method="get" action="">-->
-<!--            <div class="tb">-->
-<!--                <div class="td"><input class="searchtext" id="myInput" onkeyup="myFunction()" type="text" placeholder="Search" required></div>-->
-<!--                <div class="td" id="s-cover">-->
-<!--                    <button class="searchbutton" type="submit">-->
-<!--                        <div id="s-circle"></div>-->
-<!--                        <span></span>-->
-<!--                    </button>-->
-<!--                </div>-->
-<!--            </div>-->
-<!--        </form>-->
-<!--    </div>-->
-    <input type="text" id="myInput" onkeyup="myFunction()" placeholder="Search for the Words You Know">
+<!--    <input type="text" id="myInput" onkeyup="myFunction()" placeholder="Search through the Words You Know">-->
+    <input type="text" id="myInput" onkeyup="testShit()" placeholder="Search through the Words You Know">
     <p th:unless="${newWords} and ${newWords.size()}">No words added yet.</p>
 
     <table id="myTable">
@@ -45,27 +33,9 @@
     </table>
     </div>
 </div>
-<script language='JavaScript' type='text/JavaScript'>
-function myFunction() {
-
-   var input, filter, table, tr, td, i, txtValue;
-   input = document.getElementById("myInput");
-   filter = input.value.toUpperCase();
-   table = document.getElementById("myTable");
-   tr = table.getElementsByTagName("tr");
-
-   for (i = 0; i < tr.length; i++) {
-     td = tr[i].getElementsByTagName("td")[0];
-     if (td) {
-       txtValue = td.textContent || td.innerText;
-       if (txtValue.toUpperCase().indexOf(filter) > -1) {
-         tr[i].style.display = "";
-       } else {
-         tr[i].style.display = "none";
-       }
-     }
-   }
- }
-</script>
+<center><div><a class="btn btn-outline-danger" th:href="@{'/add'}">Add a New Word</a></div></center>
+<center><label form="text">If you would like to <b>log out</b>, click <a href="logout">here.</a></label></center>
 </body>
+
+<script type="text/javascript" src="|${/static/js}/script.js|"></script>
 </html>

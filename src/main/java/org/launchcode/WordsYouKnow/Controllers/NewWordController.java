@@ -43,7 +43,7 @@ public class NewWordController {
         }
 
         newWordDao.save(newWord);
-        return "redirect:/add";
+        return "add";
 
     }
     //////////////////////////////////////////////////////////////////////////////////////////
