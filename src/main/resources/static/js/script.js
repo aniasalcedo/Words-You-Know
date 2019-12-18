@@ -1,22 +1,21 @@
-//function myFunction() {
-//   // Declare variables
-//   var input, filter, table, tr, td, i, txtValue;
-//   input = document.getElementById("myInput");
-//   filter = input.value.toUpperCase();
-//   table = document.getElementById("myTable");
-//   tr = table.getElementsByTagName("tr");
-//
-//   // Loop through all table rows, and hide those who don't match the search query
-//   for (i = 0; i < tr.length; i++) {
-//     td = tr[i].getElementsByTagName("td")[1];
-//     if (td) {
-//       txtValue = td.textContent || td.innerText;
-//       if (txtValue.toUpperCase().indexOf(filter) > -1) {
-//         tr[i].style.display = "";
-//       } else {
-//         tr[i].style.display = "none";
-//       }
-//     }
-//   }
-// }
-//
+function myFunction() {
+  var input, filter, table, tr, td, i, txtValue;
+  input = document.getElementById("myInput");
+  filter = input.value.toUpperCase();
+  table = document.getElementById("myTable");
+  tr = table.getElementsByTagName("tr");
+  for (i = 0; i < tr.length; i++) {
+    tdCol1 = tr[i].getElementsByTagName("td")[0];
+    tdCol2 = tr[i].getElementsByTagName("td")[1];
+    if (tdCol1 || tdCol2) {
+      txtValueCol1 = tdCol1.textContent || tdCol1.innerText;
+      txtValueCol2 = tdCol2.textContent || tdCol2.innerText;
+      if ((txtValueCol1.toUpperCase().indexOf(filter) > -1) ||
+      (txtValueCol2.toUpperCase().indexOf(filter) > -1)){
+        tr[i].style.display = "";
+      } else {
+        tr[i].style.display = "none";
+      }
+    }
+  }
+}
