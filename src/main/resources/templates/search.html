@@ -10,7 +10,7 @@
 
 <div class="container"><br/>
     <h4 th:text="${title}">Default Title</h4>
-    <input type="text" id="myInput" onkeyup="myFunction()" placeholder="Search for a word you know to find its translation">
+    <center><input type="text" id="myInput" onkeyup="myFunction()" placeholder="Search for a word you know to find its translation"></center>
 
     <p th:unless="${newWords} and ${newWords.size()}">No words added yet.</p>
 
@@ -21,10 +21,17 @@
         </tr>
 
             <tr th:each="newWord : ${newWords}">
-                <td th:text="${newWord.definition}"></td>
                 <td th:text="${newWord.word}"></td>
+                <td th:text="${newWord.definition}"></td>
+<!--                <td th:text="${newWord.word}"></td>-->
+<!--                <input type="checkbox" name="wordIds" th:value="${newWord.id}" th:id="${newWord.id}"/>-->
+<!--                <label th:for="${newWord.id}" th:text="${newWord.word}"></label>-->
             </tr>
+        <form method="post">
 
+
+<!--            <input type="submit" value="Remove Cheese" />-->
+        </form>
         </table>
 </div>
 <center><div><a class="btn btn-outline-danger" th:href="@{'/add'}">Add a New Word</a></div></center>

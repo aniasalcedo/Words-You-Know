@@ -10,6 +10,7 @@ import org.springframework.validation.Errors;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import javax.validation.Valid;
 
@@ -57,6 +58,26 @@ public class NewWordController {
         return "search";
     }
 }
-
-
-
+/////////////////////////////////////////////////////////////////////////////////////////////
+///////////////////////////////DELETE WORD//////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////////////////////////
+//@RequestMapping(value = "remove", method = RequestMethod.GET)
+//public String displayRemoveWordForm(Model model) {
+//    model.addAttribute("newWord", newWordDao.findAll());
+////    model.addAttribute("title", "Remove Cheese");
+//    return "search/remove";
+//}
+//
+//    @RequestMapping(value = "remove", method = RequestMethod.POST)
+//    public String processRemoveWordForm(@RequestParam int[] cheeseIds) {
+//
+//        for (int newWordId : newWordIds) {
+//            newWordDao.delete(newWord.id);
+//        }
+//
+//        return "redirect:";
+//
+//
+//    }
+//
+//}
