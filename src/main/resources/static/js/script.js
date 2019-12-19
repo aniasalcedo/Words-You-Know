@@ -19,3 +19,21 @@ function myFunction() {
     }
   }
 }
+
+var selectedForDeletion = []; // [  ]
+function doClick(event, id, word) {
+    console.log('tr clicked');
+    console.log('what word though?')
+    console.log('id ', id, ' word =>', word);
+    console.log('here is the event', event)
+    if (selectedForDeletion.length >= 1) {
+        selectedForDeletion = [];
+    };
+    selectedForDeletion.push(id);
+    console.log('after sfd', selectedForDeletion)
+}
+
+function doDelete(event) {
+    console.log('selected to delete =>');
+    console.log(selectedForDeletion) // [ id_num ]
+}

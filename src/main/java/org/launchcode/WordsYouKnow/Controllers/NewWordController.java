@@ -18,24 +18,24 @@ import javax.validation.Valid;
 @RequestMapping(value="")
 public class NewWordController {
 
-   @Autowired
-   private NewWordDao newWordDao;
+    @Autowired
+    private NewWordDao newWordDao;
 
-    @RequestMapping(value="add")
+    @RequestMapping(value = "add")
     public String index(Model model) {
         model.addAttribute("title", "Add a new Word");
         model.addAttribute("word", newWordDao.findAll());
         return "add";
     }
 
-    @RequestMapping(value="add", method = RequestMethod.GET)
+    @RequestMapping(value = "add", method = RequestMethod.GET)
     public String displayadd(Model model) {
         model.addAttribute(new NewWord());
 //        model.addAttribute("title", "Add a new word");
         return "add";
     }
 
-    @RequestMapping(value="add", method = RequestMethod.POST)
+    @RequestMapping(value = "add", method = RequestMethod.POST)
     public String processadd(Model model, @ModelAttribute @Valid NewWord newWord, Errors errors) {
 
 
@@ -47,6 +47,7 @@ public class NewWordController {
         return "add";
 
     }
+
     //////////////////////////////////////////////////////////////////////////////////////////
 ////////////////////////////////// SEARCH THROUGH THE NEW WORD DATABASE/////////////////////////////////////
     //////////////////////////////////////////////////////////////////////////////////////////
@@ -61,23 +62,14 @@ public class NewWordController {
 /////////////////////////////////////////////////////////////////////////////////////////////
 ///////////////////////////////DELETE WORD//////////////////////////////////////////////////
 ///////////////////////////////////////////////////////////////////////////////////////
-//@RequestMapping(value = "remove", method = RequestMethod.GET)
-//public String displayRemoveWordForm(Model model) {
-//    model.addAttribute("newWord", newWordDao.findAll());
-////    model.addAttribute("title", "Remove Cheese");
-//    return "search/remove";
-//}
 //
-//    @RequestMapping(value = "remove", method = RequestMethod.POST)
-//    public String processRemoveWordForm(@RequestParam int[] cheeseIds) {
+//    @RequestMapping(value = "search", method = RequestMethod.POST)
+//    public String processRemoveWordForm(@RequestParam int[] newWordIds) {
 //
 //        for (int newWordId : newWordIds) {
-//            newWordDao.delete(newWord.id);
+//            newWordDao.delete(newWordId);
 //        }
 //
-//        return "redirect:";
-//
-//
+//        return "search";
 //    }
-//
 //}
