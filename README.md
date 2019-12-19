@@ -4,8 +4,8 @@ This application is dedicated for people who are learning foreign languages. It 
 
 ## Features
 * **User Accounts:** Each user will be able to create their own personal profile with their own dictionary and view it after logging in.
-* **Adding words to a word bank:** Users can organize what they learn by adding new words - with definitions - to their word bank. A user can edit & delete a word as well.  
-* **Search:** Users can search for their words in both languages. 
+* **Adding words to a word bank:** Users can organize what they learn by adding new words - with definitions - to their word bank.
+* **Search:** Users can search in the real-time for their words in both languages. 
 
 ## Technologies
 * HTML/CSS
@@ -15,5 +15,6 @@ This application is dedicated for people who are learning foreign languages. It 
 * More Java
 * How to use Heroku
 * Bootstrap
+* JavaScript
 ### Project Tracker
 [Trello project tracker](https://trello.com/b/2lPfSoPK/project)
