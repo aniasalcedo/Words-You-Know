@@ -1,6 +1,7 @@
 package org.launchcode.WordsYouKnow.Models;
 
 import javax.persistence.*;
+import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 
@@ -13,15 +14,15 @@ public class User {
     @GeneratedValue
     private int id;
 
-    @NotNull
+    @NotBlank(message = "Login must be between 3-20 characters")
     @Size(min= 3, max=20, message = "Login must be between 3-20 characters")
     private String username;
 
-    @NotNull
+    @NotBlank(message = "Password must be at least 5 characters long")
     @Size(min=5, message = "Password must be at least 5 characters long")
     private String password;
 
-    @NotNull(message = "Passwords do not match")
+    @NotBlank(message = "Passwords do not match")
     private String verifyPassword;
 
     // ------------------------
@@ -59,8 +60,6 @@ public class User {
         this.password = password;
         checkPassword();
     }
-
-    // I don't know yet if and why I need this
 
     public String getVerifyPassword() {
         return verifyPassword;

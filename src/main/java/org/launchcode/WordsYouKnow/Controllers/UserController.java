@@ -6,11 +6,9 @@ import org.launchcode.WordsYouKnow.Models.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
 import org.springframework.validation.Errors;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
 
@@ -28,30 +26,20 @@ public class UserController {
     @RequestMapping(method = RequestMethod.GET, value = "/register")
     public String register(Model model) {
         model.addAttribute(new User());
-//        model.addAttribute("title", "Register");
         return "register";
     }
 
     @RequestMapping(value = "/register", method = RequestMethod.POST)
-    public String add(Model model, @ModelAttribute @Valid User newUser,
-                      Errors errors) { //add this if needed , String verifypassword
+    public String add(Model model, @ModelAttribute @Valid User newUser, BindingResult result) {
 
         model.addAttribute(newUser);
-//        boolean passwordsMatch = true;
-//        if (user.getPassword() == null || verifypassword == null
-//                || !user.getPassword().equals(verifypassword)) {
-//            passwordsMatch = false;
-//            user.setPassword("");
-//            model.addAttribute("verifypassword", "Passwords must match");
-//        }
 
-        if (errors.hasErrors()) {
+        if (result.hasErrors()) {
             return "register";
         }
 
         userDao.save(newUser);
-//            User myvaliduser = new User(user.getUsername(), user.getPassword());
-//            UserDao.save(myvaliduser);
+        model.addAttribute("users", userDao.findAll());
         return "redirect:/login";
     }
 
@@ -60,40 +48,41 @@ public class UserController {
 //        login
 ////////////////////////////////////////////////////
 
-//    @RequestMapping(value = "login")
-//    public String login(Model model) {
-//        model.addAttribute("users", userDao.findAll());
-//        return "login";
-//    }
-//
-//    @RequestMapping(value = "myprofile")
-//    public String profile(Model model) {
-//        model.addAttribute("users", userDao.findAll());
-//        return "myprofile";
-//    }
 
     @RequestMapping(method = RequestMethod.GET, value = "/login")
-    public String getloginform() {
+    public String getloginform(Model model) {
 //        model.addAttribute(new User());
-//        model.addAttribute("title", "Login page");
         return "login";
     }
 
-    @RequestMapping(value = "/login", method = RequestMethod.POST)
-    public String login(@ModelAttribute(name = "User") User user, Model model, Errors errors) {
-        String username = user.getUsername();
-        String password = user.getPassword();
+//    @RequestMapping(value = "/login", method = RequestMethod.POST)
+//    public String login(@ModelAttribute(name = "User") @Valid User user, Model model, Errors errors) {
+//        String username = user.getUsername();
+//        String password = user.getPassword();
+//
+//        User myFoundUser = userDao.findByUsername(username);
+//        if (myFoundUser != null && password.equals(myFoundUser.getPassword())) {
+//            return "redirect:/search";
+//        }
+//        if (errors.hasErrors()) {
+//            return "redirect:/register";
+//        }
+//        model.addAttribute("invalidCredentials", true);
+//        return "login";
+//        }
 
-        User myFoundUser = userDao.findByUsername(username);
-        if (myFoundUser != null && password.equals(myFoundUser.getPassword())) {
+    @RequestMapping(value = "/login", method = RequestMethod.POST)
+    public String login(@RequestParam("username") String aUsername,
+                        @RequestParam("password") String aPassword,
+                        Model model)
+    {
+        User myFoundUser = userDao.findByUsername(aUsername);
+        if (myFoundUser !=null && aPassword.equals(myFoundUser.getPassword())) {
             return "redirect:/search";
         }
-        if (errors.hasErrors()) {
-            return "login";
-        }
-        model.addAttribute("invalidCredentials", true);
-        return "login";
-        }
+        model.addAttribute("error", "invalid username or password");
+                return "login";
+    }
 
     /////////////////////////////////////////////////////
 //        login again when you logout

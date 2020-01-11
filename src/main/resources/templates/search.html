@@ -13,8 +13,7 @@
     <center><input type="text" id="myInput" onkeyup="myFunction()" placeholder="Search for a word you know to find its translation"></center>
 
     <p th:unless="${newWords} and ${newWords.size()}">No words added yet.</p>
-    <button type="submit" id="deleteBtn" th:attr="onclick=|doDelete(event)|">Delete</button>
-<!--    <button type="submit" id="deleteBtn" value="delete word" method="POST" th:attr="onclick=|doDelete(event)|">Delete</button>-->
+
 
     <table id="myTable" class="table">
         <tr class="header">
@@ -26,19 +25,9 @@
             <tr th:each="newWord : ${newWords}">
                 <td th:attr="onclick=|doClick(event, '${newWord.id}', '${newWord.word}')|"   th:text="${newWord.word}"></td>
                 <td th:text="${newWord.definition}"></td>
-<!--                <td><a th:href="@{/edit}">Edit</a></td>-->
-                <td><a th:href="@{/edit/{id}(id=${newWord.id})}">Edit</a></td>
+<!--                <td><a th:href="@{/edit/{id}(id=${newWord.id})}">Edit</a></td>-->
                 <td><a th:href="@{/delete/{id}(id=${newWord.id})}">Delete</a></td>
-<!--                <input type="checkbox" name="wordIds" th:value="${newWord.id}" th:id="${newWord.id}"/>-->
-<!--                <label th:for="${newWord.id}" th:text="${newWord.word}"></label>-->
 
-<!--                <form action="#" th:object="${newWord}" th:action="@{addService}" method="POST">-->
-<!--                    <input type="hidden" th:value="${NewWord.name}" name="name"/>-->
-<!--                    <button type="submit" class="btn">-->
-<!--                        <i class="fas fa-plus"></i>-->
-<!--                    </button>-->
-<!--                </form>-->
-<!--            </tr>-->
         </table>
 </div>
 <center><div><a class="btn btn-outline-danger" th:href="@{'/add'}">Add a New Word</a></div></center>

@@ -1,4 +1,58 @@
 
+<!--<!DOCTYPE html>-->
+<!--<html lang="en" xmlns:th="http://www.thymeleaf.org/">-->
+
+<!--<head th:replace="fragments :: head"></head>-->
+
+<!--<body>-->
+
+<!--<nav th:replace="fragments :: navigation"></nav>-->
+
+<!--<div class="container"><br/>-->
+<!--    <h4 th:text="${title}">Default Title</h4>-->
+
+
+<!--    <center>-->
+<!--&lt;!&ndash;        <form th:object="${user}" method="post">&ndash;&gt;-->
+<!--&lt;!&ndash;        action="#" th:action="@{/login}"&ndash;&gt;-->
+<!--&lt;!&ndash;        <div th:if="${param.error}" class="alert alert-danger">&ndash;&gt;-->
+<!--&lt;!&ndash;            Invalid username and password.&ndash;&gt;-->
+<!--&lt;!&ndash;        </div>&ndash;&gt;-->
+<!--        <form th:action="@{/login}" method="post">-->
+<!--        <div class="form-group col-md-6">-->
+<!--&lt;!&ndash;            <label th:for="*{username}">Username</label>&ndash;&gt;-->
+<!--            <label for="username">Username</label>-->
+
+<!--            <input type="text" name="username" class="form-control" id="username" placeholder="Username" autofocus="autofocus" /> &lt;!&ndash;th:field="*{username}"&ndash;&gt;-->
+<!--&lt;!&ndash;            <span th:errors="*{username}" class="error"></span>&ndash;&gt;-->
+
+<!--&lt;!&ndash;            <input type="text" th:field="*{name}" id="name" placeholder="Name">&ndash;&gt;-->
+<!--&lt;!&ndash;            <span th:if="${#fields.hasErrors('username')}" th:errors="*{username}"></span>&ndash;&gt;-->
+<!--&lt;!&ndash;            <span th:errors="{user.username}" class="error" ></span>&ndash;&gt;-->
+<!--            <br>-->
+<!--            <label th:for="password">Password</label>-->
+<!--            <input type="password" name="password" class="form-control" id="password" placeholder="Password" /> &lt;!&ndash;th:field="*{password}"&ndash;&gt;-->
+<!--&lt;!&ndash;            <span th:errors="{user.password}" class="error"></span>&ndash;&gt;-->
+<!--&lt;!&ndash;            <span th:if="${#fields.hasErrors('password')}" th:errors="*{password}"></span>&ndash;&gt;-->
+<!--            <br>-->
+<!--            <button type="submit" class="btn btn-outline-danger">Log In</button>-->
+<!--            </br>-->
+<!--        </div>-->
+<!--        <div>-->
+<!--            <label form="text">Don't have an account? You can register <a href="register">here.</a></label>-->
+<!--            <br>-->
+
+<!--        </br>-->
+<!--        </div>-->
+<!--    </form>-->
+<!--    </center>-->
+<!--</div>-->
+<!--</body>-->
+
+<!--&lt;!&ndash;</html>&ndash;&gt;-->
+
+
+
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org/">
 
@@ -11,9 +65,11 @@
 <div class="container"><br/>
     <h4 th:text="${title}">Default Title</h4>
 
-
-    <center><form th:object="${User}" method="post">
+<!--    experiment-->
+    <!--    experiment-->
+    <center><form th:object="${user}" method="post">
         <div class="form-group col-md-6">
+<!--            <span th:errors="*{error}" class="error"></span>-->
             <label for="username">Username</label>
             <input type="text" name="username" class="form-control" id="username" placeholder="Username" autofocus="autofocus"/> <!--th:field="*{username}"-->
             <span errors="username" class="error"></span>
@@ -29,7 +85,7 @@
             <label form="text">Don't have an account? You can register <a href="register">here.</a></label>
             <br>
 
-        </br>
+            </br>
         </div>
     </form>
     </center>
