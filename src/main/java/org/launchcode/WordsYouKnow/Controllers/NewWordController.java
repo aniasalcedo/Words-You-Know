@@ -6,11 +6,9 @@ import org.launchcode.WordsYouKnow.Models.NewWord;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
 import org.springframework.validation.Errors;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
 
@@ -58,7 +56,40 @@ public class NewWordController {
 
         return "search";
     }
+
+
+/////////////////////////////////////////////////////////////////////////////////////////////
+///////////////////////////////EDIT WORD//////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////////////////////////
+
+    @RequestMapping(value="edit/{id}", method = RequestMethod.GET)
+    public String displayEditForm(Model model, @PathVariable int id) {
+    model.addAttribute("word", newWordDao.findById(id));
+
+    return "edit";
+    }
+
+
+    @RequestMapping(value="edit/{id}", method = RequestMethod.POST)
+    public String processEditForm(@PathVariable int id, BindingResult result, @ModelAttribute @Valid NewWord newWord, Errors errors, @RequestParam int newWordId, Model model){
+
+        if(result.hasErrors()) {
+            model.addAttribute("title", "Edit Word");
+            newWord.setId(id);
+            return "redirect:/edit";
+        }
+        newWordDao.save(newWord);
+        model.addAttribute("newWords", newWordDao.findAll());
+        return "redirect:/search";
+
+//    NewWord theNewWord = newWordDao.findById(newWord.id);
+//    theNewWord.setWord(newWord.getWord());
+//    theNewWord.setDefinition(newWord.getDefinition());
+//    newWordDao.save(theNewWord);
+//    return "redirect:/search";
+    }
 }
+
 /////////////////////////////////////////////////////////////////////////////////////////////
 ///////////////////////////////DELETE WORD//////////////////////////////////////////////////
 ///////////////////////////////////////////////////////////////////////////////////////
