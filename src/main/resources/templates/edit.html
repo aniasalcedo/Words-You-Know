@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org/">
+
+<head th:replace="fragments :: head"></head>
+
+<body>
+
+<nav th:replace="fragments :: navigation"></nav>
+
+<div class="container"><br/>
+    <h4 th:text="${title}">Default Title</h4>
+
+    <label form="text"><a href="search">Go back to your profile</a></label>
+    <center><form th:object="${newWord}"  method="post">
+<!--        <input type="hidden" name="newWordId" th:value="*{id}"/>-->
+
+        <div class = "form-group">
+            <label th:for="word">Foreign Word</label>
+            <input type="text" class="form-control" id="word" placeholder="Edit existing word" autofocus="autofocus" name="word" required><br><br>
+
+
+            <label th:for="definition">English Translation</label>
+            <input type="text" placeholder="Edit its definition" id="definition" class="form-control" name="definition" required><br><br>
+
+            <input type="submit" class="btn btn-outline-danger" value="Update" />
+            <span errors="messagesent" class="error"></span>
+
+            <!--            <center><div><a class="btn btn-outline-danger" th:href="@{'/search'}">Click Here to Go to Your Profile</a></div></center>-->
+        </div> </form> </center> </div>
+</div>
+</body>
+</html>
