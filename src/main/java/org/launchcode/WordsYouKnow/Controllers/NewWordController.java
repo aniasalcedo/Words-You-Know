@@ -43,7 +43,6 @@ public class NewWordController {
 
         newWordDao.save(newWord);
         return "add";
-
     }
 
     //////////////////////////////////////////////////////////////////////////////////////////
@@ -76,31 +75,27 @@ public class NewWordController {
         if(result.hasErrors()) {
             model.addAttribute("title", "Edit Word");
             newWord.setId(id);
-            return "redirect:/edit";
+            return "edit";
         }
         newWordDao.save(newWord);
         model.addAttribute("newWords", newWordDao.findAll());
-        return "redirect:/search";
-
+        return "search";
 //    NewWord theNewWord = newWordDao.findById(newWord.id);
 //    theNewWord.setWord(newWord.getWord());
 //    theNewWord.setDefinition(newWord.getDefinition());
 //    newWordDao.save(theNewWord);
 //    return "redirect:/search";
     }
-}
 
 /////////////////////////////////////////////////////////////////////////////////////////////
 ///////////////////////////////DELETE WORD//////////////////////////////////////////////////
 ///////////////////////////////////////////////////////////////////////////////////////
-//
-//    @RequestMapping(value = "search", method = RequestMethod.POST)
-//    public String processRemoveWordForm(@RequestParam int[] newWordIds) {
-//
-//        for (int newWordId : newWordIds) {
-//            newWordDao.delete(newWordId);
-//        }
-//
-//        return "search";
-//    }
-//}
+@GetMapping("/delete/{id}")
+public String deleteNewWord(@PathVariable("id") long id, Model model) {
+    NewWord newWord = newWordDao.findById((int) id)
+            .orElseThrow(() -> new IllegalArgumentException("Invalid user Id:" + id));
+    newWordDao.delete(newWord);
+    model.addAttribute("users", newWordDao.findAll());
+     return "redirect:/search";
+}
+}

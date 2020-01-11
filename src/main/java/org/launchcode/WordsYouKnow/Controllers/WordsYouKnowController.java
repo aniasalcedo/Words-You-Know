@@ -51,10 +51,10 @@ public class WordsYouKnowController {
     }
 
 
-    @RequestMapping(value = "edit")
-    public String edit(Model model) {
-        return "edit";
-    }
+//    @RequestMapping(value = "edit")
+//    public String edit(Model model) {
+//        return "edit";
+//    }
 //    @RequestMapping(value = "myprofile")
 //    public String myprofile(Model model) {
 //        return "myprofile";
