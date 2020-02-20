@@ -48,18 +48,32 @@ public class UserController {
 //        login
 ////////////////////////////////////////////////////
 
-    @RequestMapping(value = "/login", method = RequestMethod.POST)
-    public String login(@RequestParam("username") String aUsername,
-                        @RequestParam("password") String aPassword,
-                        Model model)
-    {
-        User myFoundUser = userDao.findByUsername(aUsername);
-        if (myFoundUser !=null && aPassword.equals(myFoundUser.getPassword())) {
-            return "redirect:/search";
-        }
-        model.addAttribute("error", "invalid username or password");
-                return "login";
+    @RequestMapping("/login")
+    public String getloginform() {
+        return "login";
     }
+
+    @RequestMapping(value = "/login", method = RequestMethod.POST)
+    public String login(@Valid User user, BindingResult bindingResult) {
+        if (bindingResult.hasErrors()){
+            return "login";
+        }
+        return "search";
+    }
+
+
+//    @RequestMapping(value = "/login", method = RequestMethod.POST)
+//    public String login(@RequestParam("username") String aUsername,
+//                        @RequestParam("password") String aPassword,
+//                        Model model)
+//    {
+//        User myFoundUser = userDao.findByUsername(aUsername);
+//        if (myFoundUser !=null && aPassword.equals(myFoundUser.getPassword())) {
+//            return "redirect:/search";
+//        }
+//        model.addAttribute("error", "invalid username or password");
+//                return "login";
+//    }
 
     /////////////////////////////////////////////////////
 //        login again when you logout
