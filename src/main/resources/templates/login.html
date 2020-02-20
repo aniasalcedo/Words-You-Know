@@ -67,7 +67,7 @@
 
 <!--    experiment-->
     <!--    experiment-->
-    <center><form th:object="${user}" method="post">
+    <center><form th:object="${user}" th:action="@{/login}" method="post">
         <div class="form-group col-md-6">
 <!--            <span th:errors="*{error}" class="error"></span>-->
             <label for="username">Username</label>

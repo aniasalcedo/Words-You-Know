@@ -49,7 +49,8 @@ public class UserController {
 ////////////////////////////////////////////////////
 
     @RequestMapping("/login")
-    public String getloginform() {
+    public String getloginform(Model model) {
+        model.addAttribute("user", new User());
         return "login";
     }
 
