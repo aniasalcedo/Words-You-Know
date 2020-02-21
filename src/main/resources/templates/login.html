@@ -69,14 +69,29 @@
     <!--    experiment-->
     <center><form th:object="${user}" th:action="@{/login}" method="post">
         <div class="form-group col-md-6">
-<!--            <span th:errors="*{error}" class="error"></span>-->
+
             <label for="username">Username</label>
-            <input type="text" name="username" class="form-control" id="username" placeholder="Username" autofocus="autofocus"/> <!--th:field="*{username}"-->
-            <span errors="username" class="error"></span>
+            <input type="text" name="username" class="form-control" id="username" placeholder="Username" autofocus="autofocus" th:field="*{username}" th:errorclass="has-error"/>
+
+            <span style="color:red" class="help-block" th:if="${#fields.hasErrors('username')}">
+                <ul>
+                    <li>Incorrect Username</li>
+                </ul>
+            </span>
+
+<!--            <div th:if="${#fields.hasErrors('username')}" class="alert alert-danger">-->
+<!--                <p>Wrong Credentials</p>-->
+<!--            </div>-->
             <br>
             <label for="password">Password</label>
-            <input type="password" name="password" class="form-control" id="password" placeholder="Password"/> <!--th:field="*{password}"-->
-            <span errors="password" class="error"></span>
+            <input type="password" name="password" class="form-control" id="password" placeholder="Password" th:field="*{password}" th:errorclass="has-error"/> <!--th:field="*{password}"-->
+
+            <span style="color:red" class="help-block" th:if="${#fields.hasErrors('password')}">
+                <ul>
+                    <li>Incorrect Password</li>
+                </ul>
+            </span>
+
             <br>
             <button type="submit" class="btn btn-outline-danger">Log In</button>
             </br>
