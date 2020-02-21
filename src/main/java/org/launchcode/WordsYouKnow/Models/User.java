@@ -15,11 +15,11 @@ public class User {
     @GeneratedValue
     private int id;
 
-    @NotEmpty(message = "Login must be between 3-20 characters")
+    @NotEmpty(message = "Login can not be empty")
     @Size(min= 3, max=20, message = "Login must be between 3-20 characters")
     private String username;
 
-    @NotEmpty(message = "Password must be at least 5 characters long")
+    @NotEmpty(message = "Password can not be empty")
     @Size(min=5, message = "Password must be at least 5 characters long")
     private String password;
 
