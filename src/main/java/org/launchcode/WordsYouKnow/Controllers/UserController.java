@@ -48,18 +48,29 @@ public class UserController {
 //        login
 ////////////////////////////////////////////////////
 
-    @RequestMapping("/login")
+    @RequestMapping(method = RequestMethod.GET, value = "/login")
     public String getloginform(Model model) {
         model.addAttribute("user", new User());
         return "login";
     }
 
     @RequestMapping(value = "/login", method = RequestMethod.POST)
-    public String login(@Valid User user, BindingResult bindingResult) {
-        if (bindingResult.hasErrors()){
+    public String login(@Valid User user, BindingResult bindingResult,
+                        @RequestParam("username") String aUsername,
+                       @RequestParam("password") String aPassword,
+                        Model model) {
+
+//        if (bindingResult.hasErrors()){
+//            return "login";
+//        }
+        User myFoundUser = userDao.findByUsername(aUsername);
+        if (myFoundUser !=null && aPassword.equals(myFoundUser.getPassword()))
+        return "redirect:/search";
+
+        model.addAttribute("error", new Error());
+        bindingResult.hasErrors(); {
             return "login";
         }
-        return "search";
     }
 
 
