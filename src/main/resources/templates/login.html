@@ -75,7 +75,7 @@
 
             <span style="color:red" class="help-block" th:if="${#fields.hasErrors('username')}">
                 <ul>
-                    <li>Username too short</li>
+                    <li>Username too short or does not match the password</li>
                 </ul>
             </span>
 
@@ -88,7 +88,7 @@
 
             <span style="color:red" class="help-block" th:if="${#fields.hasErrors('password')}">
                 <ul>
-                    <li>Incorrect Password</li>
+                    <li>Password does not match the username</li>
                 </ul>
             </span>
 
