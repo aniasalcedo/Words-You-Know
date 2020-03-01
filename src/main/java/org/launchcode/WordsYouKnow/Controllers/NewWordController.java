@@ -1,6 +1,5 @@
 package org.launchcode.WordsYouKnow.Controllers;
 
-import org.graalvm.compiler.word.Word;
 import org.launchcode.WordsYouKnow.Models.Data.NewWordDao;
 import org.launchcode.WordsYouKnow.Models.NewWord;
 import org.springframework.beans.factory.annotation.Autowired;
