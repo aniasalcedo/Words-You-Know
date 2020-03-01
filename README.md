@@ -5,6 +5,7 @@ This application is dedicated for people who are learning foreign languages. It 
 ## Features
 * **User Accounts:** Each user will be able to create their own personal profile with their own dictionary and view it after logging in.
 * **Adding words to a word bank:** Users can organize what they learn by adding new words - with definitions - to their word bank.
+* **Deleteing words from a word bank:** Users can delete the words that were previously added to the database.
 * **Search:** Users can search in the real-time for their words in both languages. 
 
 ## Technologies
@@ -13,7 +14,6 @@ This application is dedicated for people who are learning foreign languages. It 
 * Connecting to database
 ### Necessary To Learn
 * More Java
-* How to use Heroku
 * Bootstrap
 * JavaScript
 ### Project Tracker
